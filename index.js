@@ -4,7 +4,7 @@ const express =require('express');
 const app = express();//generate a new application, used to set up configuration(route handler)
 
 app.get('/', (req, res) => {
-    res.send({ hi: 'there' });
+    res.send({ hi: 'buddy' });
 });
 //enject environment info
 const PORT = process.env.PORT || 5000;
