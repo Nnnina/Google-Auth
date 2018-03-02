@@ -6,10 +6,14 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const key = require('./config/keys');
-
 require('./models/User');
 require('./models/Survey');
 require('./services/passport');
+
+//connect to mongoDB
+mongoose.Promise = global.Promise;
+mongoose.connect(key.mongoURI);
+
 
 const app = express();//generate a new application, used to set up configuration(route handler)
 
@@ -39,8 +43,6 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-//connect to mongoDB
-mongoose.connect(key.mongoURI);
 
 //enject environment info
 const PORT = process.env.PORT || 5000;
