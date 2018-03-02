@@ -9,6 +9,7 @@ module.exports = (app) => {
     // redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fauth%2Fgoogle%2Fcallback&
     // scope=profile%20email&
     // client_id=307559620215-v89627eht5s48k311iln3begbjjdl6ts.apps.googleusercontent.com
+    //这个设置在google中
     app.get('/auth/google/callback', passport.authenticate('google'),
         (req, res) => {
             res.redirect('/surveys');

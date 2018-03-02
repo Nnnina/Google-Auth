@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const key = require('./config/keys');
 
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 const app = express();//generate a new application, used to set up configuration(route handler)
@@ -26,6 +27,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     //express will serve up production assets, like main.js or main.css
